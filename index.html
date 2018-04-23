@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/rwd_table.css">
+    <script src="assets/js/day.js"></script>
+    <script src="assets/js/event.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>ToDoList</header>
+        <main>
+            <div id="dateStatusDiv">
+                <button id="prev" class="btn btn-info">上個月</button>
+
+                <div id="currentDate" class="label label-primary"></div>
+
+                <button id="next" class="btn btn-success">下個月</button>
+            </div>
+            <table class="rwd-table">
+                <tr>
+                    <th>星期日</th>
+                    <th>星期一</th>
+                    <th>星期二</th>
+                    <th>星期三</th>
+                    <th>星期四</th>
+                    <th>星期五</th>
+                    <th>星期六</th>
+                </tr>
+                <tbody id="dayBody">
+
+                </tbody>
+            </table>
+
+        </main>
+        <footer>
+            <a class="github-button" href="https://github.com/xyz607xx" aria-label="Follow @xyz607xx on GitHub">GitHub</a>
+            <a class="github-button" href="https://github.com/xyz607xx/todolist" aria-label="Watch ntkme/github-buttons on GitHub">Watch</a>
+            <script src="https://buttons.github.io/buttons.js"></script>
+            <script src="https://buttons.github.io/buttons.js"></script>
+        </footer>
+    </div>
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#more">Large modal</button> -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="more">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="moreTitle"></h4>
+                </div>
+                <div class="modal-body" id="moreBody">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

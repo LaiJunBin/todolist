@@ -17,7 +17,10 @@ $(function () {
                         $("#dayBody tr").last().append("<td></td>");
                     }
                     Object.keys(result['date'][x]).forEach(function (y) {
-                        $("#dayBody tr").last().find('td').eq(y).attr('data-th', `星期${week[y]}`).text(result['date'][x][y]);
+                        $("#dayBody tr").last().find('td').eq(y).attr({
+                            'data-th': `星期${week[y]}`,
+                            'day': result['date'][x][y]
+                        }).text(result['date'][x][y]);
                     });
                     $("#prev").attr('date', result['prev_date']);
                     $("#next").attr('date', result['next_date']);
@@ -32,7 +35,7 @@ $(function () {
         });
     }
     renderDate(null);
-    $("button").click(function () {
+    $("#dateStatusDiv button").click(function () {
         renderDate($(this).attr('date'));
     })
 });

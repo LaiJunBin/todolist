@@ -7,3 +7,4 @@ function addUri(file, type) {
 
 addUri('date', 'php');
 addUri('event', 'php');
+addUri('query', 'php');

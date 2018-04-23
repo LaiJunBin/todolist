@@ -3,7 +3,7 @@ $(function () {
 
     function renderDate(date) {
         $.ajax({
-            url: 'date.php',
+            url: uri.date,
             dataType: 'json',
             method: 'POST',
             data: {
@@ -24,6 +24,7 @@ $(function () {
                     $("#currentDate").text(result['current_date']);
                 });
                 renderEvent();
+                layout();
             },
             error: function (err) {
                 console.log(err)

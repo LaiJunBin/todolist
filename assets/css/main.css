@@ -1,60 +1,68 @@
-header{
-    width:100%;
-    height:45px;
-    font-size:30px;
-    text-align:center;
-    background:#39f;
-    color:#fff;
-    user-select:none;
-    border-radius:5px;
-    line-height:45px;
-
+header {
+    width: 100%;
+    height: 45px;
+    font-size: 30px;
+    text-align: center;
+    background: #39f;
+    color: #fff;
+    user-select: none;
+    border-radius: 5px;
+    line-height: 45px;
 }
 
-main{
-    height:100%;
-    width:100%;
-
-}
-footer{
-    height:30px;
-    width:100%;
-    background:#e0e0e0;
-    text-align:center;
+main {
+    height: 100%;
+    width: 100%;
 }
 
-footer *{
+footer {
+    height: 30px;
+    width: 100%;
+    background: #e0e0e0;
+    text-align: center;
+}
+
+footer * {
     margin-top: calc((30px - 20px) / 2)
 }
 
-main{
+main {
     min-height: calc(100vh - 30px - 45px - 10px);
 }
 
-#dateStatusDiv{
-    text-align:center;
-    margin:10px;
-    height:40px;
-    display:flex;
+#dateStatusDiv {
+    text-align: center;
+    margin: 10px;
+    height: 40px;
+    display: flex;
 }
 
 #dateStatusDiv * {
-    height:35px !important;
-    flex:1;
+    height: 35px !important;
+    flex: 1;
 }
 
-#currentDate{
-    width:50%;
-    display:inline-block;
-    font-size:24px;
-    flex:2;
-    margin:0 10px;
+#currentDate {
+    width: 50%;
+    display: inline-block;
+    font-size: 24px;
+    flex: 2;
+    margin: 0 10px;
 }
 
-#dateStatusDiv button{
-    width:20%;
+#dateStatusDiv button {
+    width: 20%;
 }
 
-.rwd-table td{
-    border:1px solid #333;
+.rwd-table td {
+    border: 1px solid #333;
+    font-size: 24px;
+    position: relative;
+}
+
+span.badge {
+    position: absolute !important;
+    right: 0;
+    top: auto !important;
+    bottom: 0;
 }

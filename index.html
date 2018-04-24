@@ -150,6 +150,45 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="modifyTodo">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">修改代辦事項</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="modifyTodoForm" method="post">
+                        <label for="modifyTodoFormTitle">請輸入代辦事項：(必填)</label>
+                        <input required id="modifyTodoFormTitle" class="form-control" type="text" name="title" placeholder="請輸入代辦事項">
+                        <label for="modifyTodoFormTitle">請輸入代辦事項描述：</label>
+                        <textarea name="note" id="modifyTodoFormNote" class="form-control" placeholder="請輸入代辦事項描述"></textarea>
+                        <label for="modifyTodoFormTitle">請輸入代辦事項執行時間：</label>
+                        <input type="time" id="modifyTodoFormTime" required name="time" class="form-control">
+                        <!-- <div id="useEndTimeField">
+                            <input type="checkbox" id="useEndTimeCheckbox">
+                            <div>設定結束時間</div>
+                            <div id="timeEndField">
+                                <label for="addTodoFormTitleEnd">請輸入代辦事項結束時間：</label>
+                                <input type="time" id="addTodoFormTitleEnd" name="timeEnd" class="form-control">
+                            </div>
+                        </div> -->
+                        <input type="hidden" name="id">
+                        <input type="hidden" name="ymd">
+                        <button type="submit" class="btn btn-success fill">修改代辦事項</button>
+                        <button type="reset" class="btn btn-danger fill">重新填寫</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

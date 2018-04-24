@@ -10,7 +10,22 @@ $(function () {
             success:function(res){
                 form.reset();
                 renderTodo(formData.ymd.split('-'));
+                renderEvent();
                 $("#addTodo").modal('hide');
+            }
+        });
+        return false;
+    });
+
+    $("#modifyTodoForm").on('submit',function(){
+        var formData = getFormData($(this))
+        $.ajax({
+            url:uri.modifyTodo,
+            method:'POST',
+            data:formData,
+            success:function(res){
+                renderTodo(formData.ymd.split('-'));
+                $("#modifyTodo").modal('hide');
             }
         });
         return false;
@@ -18,7 +33,7 @@ $(function () {
 });
 
 function renderTodo([y,m,d]){
-    $("#todo tr:gt(0)").remove();
+    $("#todo tr[va]").remove();
     $.ajax({
         url:uri.query,
         method:'POST',
@@ -39,23 +54,40 @@ function renderTodo([y,m,d]){
                 </td>`).attr('va',item.t_id);
                 var click_obj  = function(item){
                     var id = tr.attr('va');
+                    var [ymd,time] = item.t_date.split(' ');
                     tr.find(".TodoNoteViewTd").click(function(){
                         $("#TodoNoteTitle").text(item.t_title);
-                        $.ajax({
-                            url:uri.queryNote,
-                            method:'POST',
-                            data:{
-                                id:id
-                            },
-                            success:function(res){
-                                $("#TodoNoteMain").text(res==''?'沒有描述...':res);
-                                $("#TodoNote").modal('show');
-                            }
-                        });
+                        $("#TodoNoteMain").text(item.t_note==''?'沒有描述...':item.t_note);
+                        $("#TodoNote").modal('show');
                     });
                     tr.find('.modifyBtn').click(function(){
-                        //Code..
+                        $("#modifyTodoFormTitle").val(item.t_title);
+                        $("#modifyTodoFormNote").val(item.t_note);
+                        $("#modifyTodoFormTime").val(time);
+                        $("#modifyTodoForm [name=ymd]").val(ymd);
+                        $("#modifyTodoForm [name=id]").val(id);
+                        $("#modifyTodo").modal('show');
                     });
+                    tr.find('.deleteBtn').click(function(){
+                        if(confirm(`確定刪除 ${item.t_title} 嗎?`)){
+                            $.ajax({
+                                url:uri.deleteTodo,
+                                method:'POST',
+                                data:{
+                                    id:id,
+                                },
+                                success:function(){
+                                    renderTodo(ymd.split('-'));
+                                    renderEvent();
+                                    alert('刪除成功!');
+                                },
+                                error:function(err){
+                                    alert('刪除失敗');
+                                }
+                            });
+                        }
+                    });
+
                 }(item)
                 // .append(`<td data-th="操作">
                 //     <button type="button" class="deleteBtn btn btn-danger" va="${item.t_id}">刪除</button>
@@ -69,7 +101,7 @@ function renderTodo([y,m,d]){
         error:function(err){
             console.log(err);
         }
-    })
+    });
 }
 
 function layout() {

@@ -9,4 +9,5 @@ addUri('date', 'php');
 addUri('event', 'php');
 addUri('query', 'php');
 addUri('addTodo', 'php');
-addUri('queryNote', 'php');
+addUri('modifyTodo', 'php');
+addUri('deleteTodo', 'php');

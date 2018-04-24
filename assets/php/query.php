@@ -12,7 +12,7 @@
 
     function query($endValue){
         global $db,$y,$m,$d,$res;
-        $sql = 'select t_id,t_date,t_title from todo where t_date between :start and :end and t_end = :endValue';
+        $sql = 'select * from todo where t_date between :start and :end and t_end = :endValue order by t_date asc';
         $query = $db->prepare($sql);
         $query->bindValue(':start',date('Y-m-d H:i:s',mktime(0,0,0,$m,$d,$y)));
         $query->bindValue(':end',date('Y-m-d H:i:s',mktime(0,0,-1,$m,$d+1,$y)));

@@ -1,6 +1,6 @@
 <?php
     $user = 'root';
-    $pwd = '1234';
+    $pwd = '';
     $dbname = 'todolist';
     $host = 'localhost';
 
@@ -8,4 +8,5 @@
 
     $db = new PDO($dsn,$user,$pwd);
 
+    $db->exec('set names utf8');
 ?>

@@ -31,8 +31,17 @@ function renderEvent() {
         var day = td.attr('day');
         var todo = td.data('todo');
         var success = td.data('success');
+        var ymd = currentDate.join('-') + '-' + day;
+        $("#addTodoForm")[0].reset();
+        $("#addTodoFormTime").val("00:00");
+        $("#todo,#success").hide();
         $("#moreTitle").text($("#currentDate").text() + day + '日');
-        //AJAX Code...
-        $("#more").modal('toggle');
+        $("#addTodoForm [name=ymd]").val(ymd);
+        if(todo>0)
+            $("#todo").show();
+        if(success>0)
+            $("#success").show();
+        renderTodo(ymd.split('-'));
+        $("#more").modal('show');
     });
 }

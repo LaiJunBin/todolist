@@ -55,7 +55,6 @@
             <script src="https://buttons.github.io/buttons.js"></script>
         </footer>
     </div>
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#more">Large modal</button> -->
 
     <div class="modal fade" tabindex="-1" role="dialog" id="more">
         <div class="modal-dialog modal-lg" role="document">
@@ -67,9 +66,19 @@
                     <h4 class="modal-title" id="moreTitle"></h4>
                 </div>
                 <div class="modal-body">
+                    <button class="btn btn-default fill" data-toggle="modal" data-target="#addTodo">新增代辦事項</button>
                     <div id="todo">
                         <header class="header-danger">未完成的代辦事項</header>
-                        <main></main>
+                        <main>
+                            <table class="rwd-table">
+                                <tr>
+                                    <th>代辦事項</th>
+                                    <th>時間</th>
+                                    <th width="200">操作</th>
+                                </tr>
+                                
+                            </table>
+                        </main>
                     </div>
                     <div id="success">
                         <header class="header-success">已完成的代辦事項</header>
@@ -83,6 +92,64 @@
         </div>
     </div>
 
+    <div class="modal fade" tabindex="-1" role="dialog" id="addTodo">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">新增代辦事項</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="addTodoForm" method="post">
+                        <label for="addTodoFormTitle">請輸入代辦事項：(必填)</label>
+                        <input required id="addTodoFormTitle" class="form-control" type="text" name="title" placeholder="請輸入代辦事項">
+                        <label for="addTodoFormTitle">請輸入代辦事項描述：</label>
+                        <textarea name="note" id="addTodoFormNote" class="form-control" placeholder="請輸入代辦事項描述"></textarea>
+                        <label for="addTodoFormTitle">請輸入代辦事項執行時間：</label>
+                        <input type="time" id="addTodoFormTime" required name="time" class="form-control">
+                        <!-- <div id="useEndTimeField">
+                            <input type="checkbox" id="useEndTimeCheckbox">
+                            <div>設定結束時間</div>
+                            <div id="timeEndField">
+                                <label for="addTodoFormTitleEnd">請輸入代辦事項結束時間：</label>
+                                <input type="time" id="addTodoFormTitleEnd" name="timeEnd" class="form-control">
+                            </div>
+                        </div> -->
+                        <input type="hidden" name="ymd">
+                        <button type="submit" class="btn btn-success fill">加入代辦事項清單</button>
+                        <button type="reset" class="btn btn-danger fill">重新填寫</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="TodoNote">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h2 class="modal-title" id="TodoNoteTitle"></h2>
+                </div>
+                <div class="modal-body" id="TodoNoteBody">
+                    <header class="header-info">Note：</header>
+                    <div id="TodoNoteMain">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

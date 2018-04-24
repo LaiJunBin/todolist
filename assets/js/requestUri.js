@@ -11,3 +11,4 @@ addUri('query', 'php');
 addUri('addTodo', 'php');
 addUri('modifyTodo', 'php');
 addUri('deleteTodo', 'php');
+addUri('successTodo', 'php');

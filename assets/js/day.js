@@ -20,13 +20,13 @@ $(function () {
                         $("#dayBody tr").last().find('td').eq(y).attr({
                             'data-th': `星期${week[y]}`,
                             'day': result['date'][x][y]
-                        }).text(result['date'][x][y]);
+                        }).addClass('btn').text(result['date'][x][y]);
                     });
                     $("#prev").attr('date', result['prev_date']);
                     $("#next").attr('date', result['next_date']);
                     $("#currentDate").text(result['current_date']);
                 });
-                renderEvent();
+                renderEvent(true);
                 layout();
             },
             error: function (err) {

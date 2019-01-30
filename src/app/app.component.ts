@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { AuthService, SocialUser } from "angularx-social-login";
+import { LoginService } from "./login.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todolist';
+
+  constructor(
+    private authService: AuthService,
+    private loginService: LoginService
+  ) { }
+
+  ngOnInit(): void {
+    this.authService.readyState.subscribe(data => {
+      if (data.length !== 0) {
+        this.loginService.status = true;
+        this.authService.authState.subscribe((user) => {
+          this.loginService.user = user;
+          this.loginService.loggedIn = (user !== null);
+        });
+        console.log(this.authService);
+      }
+    });
+  }
+
 }

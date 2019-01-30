@@ -1,0 +1,9 @@
+<button class="loginBtn loginBtn--google" *ngIf="!this.loginService.status">
+  Wait...
+</button>
+<button class="loginBtn loginBtn--google" (click)="this.loginService.signInWithGoogle()" *ngIf="this.loginService.status && !this.loginService.loggedIn">
+  Login with Google
+</button>
+<button class="loginBtn loginBtn--google" (click)="this.loginService.signOut()" *ngIf="this.loginService.status && this.loginService.loggedIn">
+  Logout
+</button>
